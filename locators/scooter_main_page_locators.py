@@ -3,14 +3,17 @@ from selenium.webdriver.common.by import By
 
 class ScooterMainPageLocators:
 
-        # кнопка Заказать на главной странице
-        ORDER_BUTTON_MAIN_PAGE = [By.XPATH, '//div[@class = "Home_FinishButton__1_cWm"]/button']
+    # заголовок Самокат на пару дней
+    SCOOTER_MAIN_HEADER = [By.XPATH, '//div[@class = "Home_Header__iJKdX"]']
 
-        # заголовок FAQ Вопросы о важном
-        FAQ_HEADER = [By.XPATH, '//div[text() = "Вопросы о важном"]']
+    # кнопка Заказать на главной странице
+    ORDER_BUTTON_MAIN_PAGE = [By.XPATH, '//div[@class = "Home_FinishButton__1_cWm"]/button']
 
-        # вопросы в FAQ
-        FAQ_QUESTION = [By.XPATH, '//div[@id = "accordion__heading-{}"]']
+    # заголовок FAQ Вопросы о важном
+    FAQ_HEADER = [By.XPATH, '//div[text() = "Вопросы о важном"]']
 
-        # ответы в FAQ
-        FAQ_ANSWER = [By.XPATH, '//div[@id = "accordion__panel-{}"]']
+    # вопросы в FAQ
+    FAQ_QUESTION = [By.XPATH, '//div[@id = "accordion__heading-{}"]']
+
+    # ответы в FAQ
+    FAQ_ANSWER = [By.XPATH, '//div[@id = "accordion__panel-{}"]']

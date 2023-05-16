@@ -1,24 +1,19 @@
 import pytest
 import allure
-from pages.header_page import HeaderPage
 from pages.client_data_page import ClientDataPage
 from pages.about_rent_page import AboutRentPage
 from pages.scooter_main_page import ScooterMainPage
-
-scenarios = [
-    ['Франц', 'Кафка', 'Замок-7-14', '89215555555', 0],
-    ['Дон Кихот', 'Ламанчский', 'Ламанча, 3, 1', '+79211111111', 1]
-]
+from test_data import Person
 
 
-@pytest.mark.parametrize('name, surname, address, phone, scenario', scenarios)
+@pytest.mark.parametrize('name, surname, address, phone, scenario', Person.scenarios)
 class TestOrderScooter:
 
     @allure.title('Успешный сценарий заказа самоката через кнопку "Заказать" в хэдере')
     def test_order_scooter_by_header_button_success(self, driver, name, surname, address, phone, scenario):
-        header_page = HeaderPage(driver)
+        scooter_main_page = ScooterMainPage(driver)
         with allure.step('Переход на страницу "Для кого самокат" по кнопке "Заказать" в хэдере'):
-            header_page.click_on_order_header_button()
+            scooter_main_page.click_on_order_header_button()
         client_data_page = ClientDataPage(driver)
         client_data_page.wait_for_load_client_data_form()
         with allure.step('Заполнение формы на странице "Для кого самокат"'):
